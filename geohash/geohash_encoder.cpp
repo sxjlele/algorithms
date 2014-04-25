@@ -9,7 +9,7 @@
 
 #include "geohash_encoder.h"
 
-namespace sf1r_geohash
+namespace algo_geohash
 {
 	//max geohash string length
 	//notice:when length equal 9, accuracy is about 2m
@@ -82,9 +82,7 @@ namespace sf1r_geohash
 			SetBit(bits, val1, 2,range1);
 			SetBit(bits, val2, 1,range2);
 			SetBit(bits, val1, 0,range1);
-			
 			assert(bits<=32);
-			
 			geohash.push_back(kBase32EncoderTable[bits]);
 			std::swap(val1,val2);
 			std::swap(range1,range2);
@@ -118,7 +116,7 @@ namespace sf1r_geohash
 		double mid = (range->max + range->min) / 2.0;
 		if (value >= mid) 
 		{
-			range->min = mid;
+		    range->min = mid;
 			bits |= (0x1 << offset);
 		} 
 		else 

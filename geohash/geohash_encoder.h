@@ -14,7 +14,7 @@
 #include<string.h>
 #include<assert.h>
 
-namespace sf1r_geohash
+namespace algo_geohash
 {
 	//latutude/longitude range 
 	struct GeoHashRange

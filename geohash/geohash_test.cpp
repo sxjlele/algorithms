@@ -5,7 +5,7 @@
 #include<iostream>
 #include"geohash_encoder.h"
 
-using namespace sf1r_geohash;
+using namespace algo_geohash;
 
 int main(int argc, char** argv)
 {
