@@ -1,2 +1,5 @@
 algorithms
+   --geohash
+     --src
+	 --doc
 ==========
