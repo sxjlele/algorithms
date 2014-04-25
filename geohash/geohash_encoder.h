@@ -60,9 +60,7 @@ namespace sf1r_geohash
 		 *@param length[size_t] :geohash string length must be between[1,12]
 		 *@return geohash string
 		 */
-		std::string Encoder(double longitude,
-							double latitude,
-							size_t length);
+		std::string Encoder(double longitude,double latitude,size_t length);
 		/**
 		 *@brief:Get nearby eight grids geohash string by center grid  
 		 *@param longitude[double] :between[-180,180]
@@ -70,15 +68,10 @@ namespace sf1r_geohash
 		 *@param length[size_t] :geohash string length must be between[1,12]
 		 *@return nearby eight grid geohash string
 		 */
-		GeoHashNeighbors GetNeighborsGrids(double longitude,
-										   double latutude,
-										   size_t length);
+		GeoHashNeighbors GetNeighborsGrids(double longitude,double latutude,size_t length);
 	private:
 		//set base32 bits value
-		inline void SetBit(unsigned char &bits,
-						   double value, 
-						   size_t offset,
-						   GeoHashRange *range);
+		inline void SetBit(unsigned char &bits,double value,size_t offset,GeoHashRange *range);
 		//get nearby grid by direction
 		std::string GetAdjacent(const std::string&hash, GeoHashDirection dir);
 

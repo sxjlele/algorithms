@@ -7,7 +7,7 @@
  *@author:sxjlele@hotmail.com
  */
 
-#include "GeoHashEncoder.h"
+#include "geohash_encoder.h"
 
 namespace sf1r_geohash
 {
@@ -56,15 +56,12 @@ namespace sf1r_geohash
 	{
 	}
 
-	std::string GeoHashEncoder::Encoder(double longitude,
-										double latitude,
-										size_t length)
+	std::string GeoHashEncoder::Encoder(double longitude,double latitude,size_t length)
 	{
 		std::string geohash("");
 		if(latitude < -90.0 || latitude > 90.0 ||
-					longitude < -180.0 || longitude > 180.0
-						|| length > kMaxGeoHashLength 
-							|| length <= 0)
+		   longitude < -180.0 || longitude > 180.0 || 
+		   length > kMaxGeoHashLength || length <= 0)
 		{
 			return geohash;
 		}
@@ -95,9 +92,7 @@ namespace sf1r_geohash
 		return geohash;
 	}
 
-	GeoHashNeighbors GeoHashEncoder::GetNeighborsGrids(double longitude,
-													   double latutude,
-													   size_t length)
+	GeoHashNeighbors GeoHashEncoder::GetNeighborsGrids(double longitude,double latutude,size_t length)
 	{
 		GeoHashNeighbors neighbors;
 		std::string hash = Encoder(longitude,latutude,length);
@@ -118,14 +113,10 @@ namespace sf1r_geohash
 		return neighbors;
 	}
 
-	void GeoHashEncoder::SetBit(unsigned char &bits,
-									   double value, 
-									   size_t offset,
-									   GeoHashRange *range)
+	void GeoHashEncoder::SetBit(unsigned char &bits,double value,size_t offset,GeoHashRange *range)
 	{
 		double mid = (range->max + range->min) / 2.0;
 		if (value >= mid) 
-		
 		{
 			range->min = mid;
 			bits |= (0x1 << offset);
@@ -137,7 +128,7 @@ namespace sf1r_geohash
 		}
 	}
 
-	std::string GeoHashEncoder::GetAdjacent(const std::string&hash, GeoHashDirection dir)
+	std::string GeoHashEncoder::GetAdjacent(const std::string&hash,GeoHashDirection dir)
 	{
 		if(hash.empty())
 		{	
